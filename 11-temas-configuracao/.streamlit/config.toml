@@ -1,0 +1,15 @@
+# Configuração de tema do Streamlit
+# As cores deixam o app mais atrativo para o público jovem.
+# Documentação: https://docs.streamlit.io/develop/concepts/configuration
+
+[theme]
+# Cor principal (botões, links, elementos destacados)
+primaryColor = "#FF4B4B"
+# Cor de fundo do app
+backgroundColor = "#FFFFFF"
+# Cor de fundo da barra lateral e de áreas secundárias
+secondaryBackgroundColor = "#F0F2F6"
+# Cor do texto
+textColor = "#262730"
+# Cor dos botões quando o mouse passa por cima (opcional)
+# font = "sans serif"

@@ -1,0 +1,6 @@
+# Dependências para os exemplos deste repositório.
+# Instale com: pip install -r requirements.txt
+# Alguns exemplos (12, 13) têm requirements.txt próprio na pasta.
+
+streamlit>=1.28.0
+pandas>=1.5.0

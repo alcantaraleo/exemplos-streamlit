@@ -1,0 +1,6 @@
+# Dependências para o exemplo de chat.
+# O app funciona só com streamlit (já instalado no projeto).
+# Se for usar OpenAI como LLM, descomente a linha abaixo e configure sua chave em .streamlit/secrets.toml
+# openai>=1.0.0
+
+streamlit>=1.28.0
