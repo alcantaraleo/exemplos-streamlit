@@ -28,8 +28,19 @@ if "entrada_em_edicao" not in st.session_state:
 if "cliques_secretos" not in st.session_state:
     st.session_state.cliques_secretos = 0
 
-if "texto_entrada" not in st.session_state:
-    st.session_state.texto_entrada = ""
+# form_id muda quando queremos "limpar" o campo de texto (após salvar, cancelar, etc)
+# Assim criamos um widget novo em vez de modificar o existente (o Streamlit não permite)
+if "form_id" not in st.session_state:
+    st.session_state.form_id = 0
+
+# Quando clicamos em "carregar" uma entrada, guardamos o texto aqui e rerunamos.
+# Na próxima execução, colocamos no estado do widget ANTES dele ser criado.
+if "carregar_texto" in st.session_state:
+    chave_texto = f"texto_entrada_{st.session_state.form_id}"
+    st.session_state[chave_texto] = st.session_state.carregar_texto
+    del st.session_state["carregar_texto"]
+
+chave_texto = f"texto_entrada_{st.session_state.form_id}"
 
 # Mostrar o menu na lateral (só "Meu Diário" aparece)
 menu()
@@ -49,11 +60,12 @@ with col_icone:
             st.switch_page("pages/app_real.py")
 
 # Área para escrever a entrada do diário
-# O texto é guardado em session_state - quando editamos, já foi carregado ao clicar na entrada
+# Usamos key dinâmica (form_id) para poder "limpar" após salvar - incrementar form_id
+# cria um widget novo com valor vazio, evitando o erro de modificar session_state do widget
 st.text_area(
     "O que você quer escrever hoje?",
     height=150,
-    key="texto_entrada",
+    key=chave_texto,
     placeholder="Escreva aqui seus pensamentos, ideias, ou o que aconteceu no seu dia...",
 )
 
@@ -65,7 +77,7 @@ with col_botao:
     if em_modo_edicao:
         if st.button("Atualizar", type="primary"):
             # Atualizar a entrada que está sendo editada
-            texto_novo = st.session_state.texto_entrada
+            texto_novo = st.session_state.get(chave_texto, "")
             for i, entrada in enumerate(st.session_state.entradas):
                 if entrada["id"] == st.session_state.entrada_em_edicao:
                     st.session_state.entradas[i]["texto"] = texto_novo
@@ -74,19 +86,20 @@ with col_botao:
                     )
                     break
             st.session_state.entrada_em_edicao = None
-            st.session_state.texto_entrada = ""
+            st.session_state.form_id += 1  # Novo form = campo limpo
             st.rerun()
     else:
         if st.button("Salvar", type="primary"):
             # Criar nova entrada - só salva se tiver texto
-            if st.session_state.texto_entrada.strip():
+            texto = st.session_state.get(chave_texto, "")
+            if texto.strip():
                 nova_entrada = {
                     "id": datetime.now().strftime("%Y%m%d%H%M%S"),
-                    "texto": st.session_state.texto_entrada.strip(),
+                    "texto": texto.strip(),
                     "data": datetime.now().strftime("%d/%m/%Y %H:%M"),
                 }
                 st.session_state.entradas.append(nova_entrada)
-                st.session_state.texto_entrada = ""
+                st.session_state.form_id += 1  # Novo form = campo limpo
                 st.rerun()
             else:
                 st.warning("Digite algo antes de salvar!")
@@ -95,7 +108,7 @@ with col_botao:
 if em_modo_edicao:
     if st.button("Cancelar edição"):
         st.session_state.entrada_em_edicao = None
-        st.session_state.texto_entrada = ""
+        st.session_state.form_id += 1  # Novo form = campo limpo
         st.rerun()
 
 st.divider()
@@ -124,7 +137,8 @@ else:
                 )
                 if clicou_carregar:
                     st.session_state.entrada_em_edicao = entrada["id"]
-                    st.session_state.texto_entrada = entrada["texto"]
+                    # Guardar para a próxima execução - lá colocamos no widget antes de criá-lo
+                    st.session_state.carregar_texto = entrada["texto"]
                     st.rerun()
 
             with col_acoes:
@@ -135,7 +149,7 @@ else:
                     ]
                     if st.session_state.entrada_em_edicao == entrada["id"]:
                         st.session_state.entrada_em_edicao = None
-                        st.session_state.texto_entrada = ""
+                        st.session_state.form_id += 1  # Limpar campo se estava editando
                     st.rerun()
 
             st.caption(f"Salvo em: {data_str}")
