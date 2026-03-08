@@ -64,7 +64,10 @@ if "minha_config" in st.secrets:
     st.write("Secrets da seção **minha_config** encontrados:")
 
     # Mostramos os nomes das chaves (não os valores, por segurança!)
-    chaves = list(config.keys()) if hasattr(config, "keys") else []
+    try:
+        chaves = list(config.keys())
+    except (AttributeError, TypeError):
+        chaves = []
     for chave in chaves:
         st.write(f"- `{chave}`: ✓ configurado")
 else:
@@ -91,7 +94,7 @@ st.subheader("📋 Próximos passos para deploy")
 st.markdown("""
 1. **Subir para GitHub** – Envie seu repositório para o GitHub.
 2. **Conectar ao Streamlit Cloud** – Acesse [share.streamlit.io](https://share.streamlit.io) e conecte seu repositório.
-3. **Configurar secrets** – No deploy, clique em "Advanced settings" e cole o conteúdo do seu `secrets.toml`.
+3. **Configurar secrets** – Clique em "Advanced settings" antes ou durante o deploy e cole o conteúdo do seu `secrets.toml`.
 4. Pronto! Seu app estará no ar. 🚀
 
 Veja o **README.md** desta pasta para o passo a passo detalhado.
