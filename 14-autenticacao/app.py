@@ -47,7 +47,7 @@ if not st.session_state.logado:
         if usuario in usuarios_senhas and usuarios_senhas[usuario] == senha:
             st.session_state.logado = True
             st.session_state.nome_usuario = usuario
-            # 3. Exibir resultado
+            # Avisar o usuário que o login foi feito com sucesso
             st.success("Login feito com sucesso!")
             st.rerun()
         else:
