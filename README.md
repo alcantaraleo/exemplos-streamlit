@@ -24,6 +24,7 @@ Cada pasta tem um número e um nome que indica o tema:
 | [14-autenticacao](14-autenticacao)                     | Login e senha (exemplo mais avançado)                                                                 |
 | [15-supabase-basico](15-supabase-basico)               | Conectar ao Supabase (banco de dados na nuvem)                                                        |
 | [16-deploy-streamlit-cloud](16-deploy-streamlit-cloud) | Deploy na internet com Streamlit Community Cloud                                                      |
+| [17-pagina-secreta](17-pagina-secreta)                 | Easter egg: página escondida acessível após X cliques em um elemento                                  |
 | [20-mvp-template](20-mvp-template)                     | Template MVP com login, dashboard e Supabase                                                          |
 | [22-exemplo-technovation](22-exemplo-technovation)     | Exemplo ODS 12 – Redução de desperdício alimentar                                                     |
 | [23-desafios-progressivos](23-desafios-progressivos)   | Conjunto de 5 desafios progressivos com temas ODS (app local, multipágina, Supabase, métricas, pitch) |

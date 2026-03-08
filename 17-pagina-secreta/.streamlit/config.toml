@@ -1,0 +1,14 @@
+# Configuração do app de diário com página secreta
+# Escondemos o menu nativo para controlar quais páginas aparecem no menu.
+# A página secreta não terá link no menu - só é acessível pelo easter egg!
+# Documentação: https://docs.streamlit.io/develop/concepts/configuration
+
+[client]
+showSidebarNavigation = false
+
+[theme]
+# Tema colorido e atrativo para o público jovem
+primaryColor = "#FF6B6B"
+backgroundColor = "#FFF9F0"
+secondaryBackgroundColor = "#FFEAA7"
+textColor = "#2D3436"
