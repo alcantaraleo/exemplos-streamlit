@@ -65,6 +65,7 @@ st.subheader("Listar itens")
 # Nesta seção não há input do usuário; buscamos os dados do banco.
 
 # ----- 2. Processar dados -----
+# Fazemos UMA busca e reutilizamos o resultado em "Listar" e "Deletar".
 itens = buscar_itens()
 
 # ----- 3. Exibir resultado -----
@@ -72,10 +73,11 @@ if not itens:
     st.info("Nenhum item encontrado. Adicione um usando o formulário acima.")
 else:
     tabela = pd.DataFrame(itens)
-    if "id" in tabela.columns:
-        colunas = [c for c in ["nome"] if c in tabela.columns]
-        outras = [c for c in tabela.columns if c not in colunas]
-        tabela = tabela[colunas + outras]
+    # Colocamos "nome" como primeira coluna, depois as demais (ex: "id")
+    # Verificamos se a coluna "nome" existe antes de reordenar
+    if "nome" in tabela.columns:
+        colunas_ordenadas = ["nome"] + [c for c in tabela.columns if c != "nome"]
+        tabela = tabela[colunas_ordenadas]
     st.dataframe(tabela, use_container_width=True)
 
 st.divider()
@@ -84,12 +86,11 @@ st.divider()
 st.subheader("Deletar item")
 
 # ----- 1. Coletar input -----
-# Buscamos os itens de novo para o selectbox de exclusão
-itens_para_deletar = buscar_itens()
-if itens_para_deletar:
+# Reutilizamos a lista já buscada acima (sem nova chamada ao banco).
+if itens:
     # Cada item aparece com um botão "Excluir" ao lado.
     # Quando o usuário clica, chamamos deletar_item com o id daquele item.
-    for item in itens_para_deletar:
+    for item in itens:
         col_nome, col_botao = st.columns([3, 1])
         with col_nome:
             st.write(f"**{item.get('nome', item.get('id', ''))}**")

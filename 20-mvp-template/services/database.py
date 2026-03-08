@@ -12,6 +12,12 @@ Este módulo contém funções simples (sem classes) para:
 import os
 import streamlit as st
 from supabase import create_client
+from dotenv import load_dotenv
+
+# Carrega variáveis do arquivo .env (se existir) para qualquer página que importe este módulo.
+# O .env é usado no desenvolvimento local. Em produção, configure as variáveis diretamente
+# no ambiente (ex: Streamlit Cloud ou servidor). Variáveis já definidas no sistema não são sobrescritas.
+load_dotenv()
 
 
 def _obter_credenciais():
@@ -60,9 +66,8 @@ def obter_cliente():
         cliente = create_client(url, key)
         return cliente
 
-    except Exception as erro:
+    except Exception:
         # Em caso de qualquer erro (rede, credencial inválida etc), retorna None
-        # Log opcional para debug: print(erro) ou import logging; logging.exception(erro)
         return None
 
 
@@ -85,7 +90,7 @@ def buscar_itens():
         dados = resposta.data if resposta.data else []
         return dados
 
-    except Exception as erro:
+    except Exception:
         # Log opcional para debug: print(erro)
         return []
 
@@ -111,7 +116,7 @@ def inserir_item(nome):
         cliente.table("itens").insert(dados).execute()
         return True
 
-    except Exception as erro:
+    except Exception:
         # Log opcional para debug: print(erro)
         return False
 
@@ -135,6 +140,6 @@ def deletar_item(id_item):
         cliente.table("itens").delete().eq("id", id_item).execute()
         return True
 
-    except Exception as erro:
+    except Exception:
         # Log opcional para debug: print(erro)
         return False

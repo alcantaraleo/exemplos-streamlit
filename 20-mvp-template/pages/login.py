@@ -30,9 +30,13 @@ with st.form("form_login"):
 if enviar:
     # Validação: removemos espaços em branco e verificamos se não está vazio
     email_limpo = email.strip() if email else ""
+    # Verificação básica: um email precisa ter exatamente um "@" e um "." depois do "@"
+    email_valido = email_limpo.count("@") == 1 and "." in email_limpo.split("@")[-1]
     if not email_limpo:
         # 3. Exibir resultado (erro)
         st.error("Por favor, digite seu email antes de entrar.")
+    elif not email_valido:
+        st.error("Por favor, digite um email válido. Exemplo: nome@email.com")
     else:
         # Salvamos o email e o estado "logado" no session_state.
         # Assim as outras páginas sabem que o usuário está autenticado.

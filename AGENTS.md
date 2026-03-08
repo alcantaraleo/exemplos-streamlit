@@ -38,3 +38,23 @@
 ## Visual e interface
 
 - Os exemplos devem ser **coloridos e visualmente atrativos**, adequados ao público-alvo (crianças e adolescentes).
+
+## Conventional Commits
+
+Use o padrão [Conventional Commits](https://www.conventionalcommits.org/) para todas as mensagens de commit:
+
+| Prefixo | Quando usar | Exemplo |
+|---------|-------------|---------|
+| `feat:` | Nova funcionalidade | `feat: adiciona página de login` |
+| `fix:` | Correção de bug | `fix: corrige validação de email` |
+| `docs:` | Documentação | `docs: atualiza README do template MVP` |
+| `refactor:` | Refatoração sem mudar comportamento | `refactor: simplifica lógica do dashboard` |
+| `style:` | Formatação, espaços, sem mudança de lógica | `style: organiza importações` |
+| `chore:` | Tarefas de manutenção, dependências | `chore: atualiza requirements.txt` |
+
+Exemplo de mensagem completa:
+```
+feat: adiciona validação de email no login
+
+Verifica se o email contém "@" e "." para evitar entradas inválidas.
+```
