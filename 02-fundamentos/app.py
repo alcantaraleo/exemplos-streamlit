@@ -12,7 +12,7 @@ Referência: https://docs.streamlit.io/get-started/fundamentals/main-concepts
 import streamlit as st
 import pandas as pd
 
-# 3. Exibir resultado
+# 1. Exibir texto inicial
 # ----- Título da página -----
 # st.title mostra um título grande no topo do app
 st.title("Meu primeiro app Streamlit")
