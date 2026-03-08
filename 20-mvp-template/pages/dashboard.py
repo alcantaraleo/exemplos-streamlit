@@ -90,14 +90,17 @@ if itens_para_deletar:
     # Cada item aparece com um botão "Excluir" ao lado.
     # Quando o usuário clica, chamamos deletar_item com o id daquele item.
     for item in itens_para_deletar:
+        item_id = item.get("id")
+        if item_id is None:
+            continue  # Item sem id (dados malformados); pula para evitar KeyError
         col_nome, col_botao = st.columns([3, 1])
         with col_nome:
-            st.write(f"**{item.get('nome', item.get('id', ''))}**")
+            st.write(f"**{item.get('nome', str(item_id))}**")
         with col_botao:
             # O key precisa ser único; usamos o id do item
-            if st.button("Excluir", key=f"excluir_{item['id']}"):
+            if st.button("Excluir", key=f"excluir_{item_id}"):
                 # ----- 2. Processar dados -----
-                sucesso = deletar_item(item["id"])
+                sucesso = deletar_item(item_id)
                 # ----- 3. Exibir resultado -----
                 if sucesso:
                     st.success("Item excluído!")
