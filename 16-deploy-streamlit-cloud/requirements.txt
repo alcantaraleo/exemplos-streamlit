@@ -1,0 +1,9 @@
+# Dependências para deploy no Streamlit Community Cloud.
+# Instale com: pip install -r requirements.txt
+#
+# O Streamlit Community Cloud usa este arquivo para instalar
+# todas as dependências necessárias ao fazer o deploy.
+# Inclua aqui TUDO que seu app precisa além do Python.
+
+streamlit>=1.28.0
+pandas>=1.5.0

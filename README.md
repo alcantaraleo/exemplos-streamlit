@@ -6,22 +6,26 @@ Este repositório contém **exemplos de aplicações em Streamlit** para ensinar
 
 Cada pasta tem um número e um nome que indica o tema:
 
-| Pasta | Conteúdo |
-|-------|----------|
-| [01-instalacao](01-instalacao) | Como instalar Python e o Streamlit |
-| [02-fundamentos](02-fundamentos) | Primeiro app e conceitos básicos |
-| [03-conceitos](03-conceitos) | Modelo de execução, layout e organização |
-| [04-texto-e-exibicao](04-texto-e-exibicao) | Títulos, texto, markdown e exibição de informações |
-| [05-widgets-input](05-widgets-input) | Botões, sliders, caixas de texto e outros controles |
-| [06-formularios-validacao](06-formularios-validacao) | Formulários e validação de dados |
-| [07-imagens-midias](07-imagens-midias) | Imagens, áudio e vídeo |
-| [08-dados-tabelas](08-dados-tabelas) | Tabelas e dados |
-| [09-graficos](09-graficos) | Gráficos e mapas |
-| [10-multipaginas](10-multipaginas) | Apps com várias páginas |
-| [11-temas-configuracao](11-temas-configuracao) | Cores, temas e configuração |
-| [12-llm-chat](12-llm-chat) | Uso com LLMs e chat |
-| [13-google-sheets](13-google-sheets) | Usar Google Sheets como banco de dados |
-| [14-autenticacao](14-autenticacao) | Login e senha (exemplo mais avançado) |
+| Pasta                                                  | Conteúdo                                            |
+| ------------------------------------------------------ | --------------------------------------------------- |
+| [01-instalacao](01-instalacao)                         | Como instalar Python e o Streamlit                  |
+| [02-fundamentos](02-fundamentos)                       | Primeiro app e conceitos básicos                    |
+| [03-conceitos](03-conceitos)                           | Modelo de execução, layout e organização            |
+| [04-texto-e-exibicao](04-texto-e-exibicao)             | Títulos, texto, markdown e exibição de informações  |
+| [05-widgets-input](05-widgets-input)                   | Botões, sliders, caixas de texto e outros controles |
+| [06-formularios-validacao](06-formularios-validacao)   | Formulários e validação de dados                    |
+| [07-imagens-midias](07-imagens-midias)                 | Imagens, áudio e vídeo                              |
+| [08-dados-tabelas](08-dados-tabelas)                   | Tabelas e dados                                     |
+| [09-graficos](09-graficos)                             | Gráficos e mapas                                    |
+| [10-multipaginas](10-multipaginas)                     | Apps com várias páginas                             |
+| [11-temas-configuracao](11-temas-configuracao)         | Cores, temas e configuração                         |
+| [12-llm-chat](12-llm-chat)                             | Uso com LLMs e chat                                 |
+| [13-google-sheets](13-google-sheets)                   | Usar Google Sheets como banco de dados              |
+| [14-autenticacao](14-autenticacao)                     | Login e senha (exemplo mais avançado)               |
+| [15-supabase-basico](15-supabase-basico)               | Conectar ao Supabase (banco de dados na nuvem)      |
+| [16-deploy-streamlit-cloud](16-deploy-streamlit-cloud) | Deploy na internet com Streamlit Community Cloud    |
+| [20-mvp-template](20-mvp-template)                     | Template MVP com login, dashboard e Supabase        |
+| [22-exemplo-technovation](22-exemplo-technovation)     | Exemplo ODS 12 – Redução de desperdício alimentar   |
 
 ## Como usar
 
@@ -31,7 +35,7 @@ Cada pasta tem um número e um nome que indica o tema:
    cd 02-fundamentos
    streamlit run app.py
    ```
-3. O navegador abrirá o app. Cada pasta tem seu próprio **README.md** com instruções detalhadas.
+3. O navegador abrirá o app. Cada pasta tem seu próprio **README.md** com instruções detalhadas. Alguns exemplos (12, 13, 15, 16, 20, 22) têm **requirements.txt** próprio — use `pip install -r requirements.txt` antes de rodar.
 
 ## Documentação do Streamlit
 
