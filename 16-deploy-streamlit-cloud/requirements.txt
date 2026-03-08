@@ -5,4 +5,4 @@
 # todas as dependências necessárias ao fazer o deploy.
 # Inclua aqui TUDO que seu app precisa além do Python.
 
-streamlit>=1.28.0
+streamlit>=1.55.0

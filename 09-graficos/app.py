@@ -15,6 +15,7 @@ import pandas as pd
 st.set_page_config(page_title="Gráficos e mapas", layout="wide")
 st.title("Gráficos e mapas")
 
+# 2. Processar dados
 # ----- Dados para os gráficos -----
 # Criamos uma tabela com números. Cada coluna vira uma série no gráfico.
 # Os números representam valores em diferentes "momentos" (linhas).
@@ -26,6 +27,7 @@ dados_linhas = pd.DataFrame(
     }
 )
 
+# 3. Exibir resultado
 # ----- Gráfico de linhas -----
 st.header("Gráfico de linhas")
 st.write(

@@ -3,4 +3,4 @@
 # Se for usar OpenAI como LLM, descomente a linha abaixo e configure sua chave em .streamlit/secrets.toml
 # openai>=1.0.0
 
-streamlit>=1.28.0
+streamlit>=1.55.0

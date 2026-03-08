@@ -1,13 +1,15 @@
 # 13 – Google Sheets como banco de dados
 
-Aqui você aprende a **ler e escrever dados** em um **Google Sheets** usando o Streamlit. O exemplo usa a biblioteca **gspread** e credenciais de serviço (arquivo JSON). A lógica é explicada passo a passo para ficar fácil de entender.
+## Objetivo
 
-## O que você vai aprender
+Este exemplo ensina a **ler e escrever dados** em um **Google Sheets** usando o Streamlit. O exemplo usa a biblioteca **gspread** e credenciais de serviço (arquivo JSON). A lógica é explicada passo a passo para ficar fácil de entender.
 
-- Como configurar o acesso ao Google Sheets (conta de serviço e arquivo JSON de credenciais).
-- Ler dados de uma planilha (lista de linhas).
-- Escrever dados em uma planilha (append de uma nova linha).
-- Usar **st.secrets** para guardar credenciais sem colocar no código.
+## Conceitos ensinados
+
+- Como configurar o acesso ao Google Sheets (conta de serviço e arquivo JSON de credenciais)
+- Ler dados de uma planilha (lista de linhas)
+- Escrever dados em uma planilha (append de uma nova linha)
+- Usar **st.secrets** para guardar credenciais sem colocar no código
 
 ## Pré-requisitos
 
@@ -20,14 +22,11 @@ Passo a passo detalhado está na documentação do gspread e do Google Cloud. No
 
 ## Como executar
 
-```bash
-cd 13-google-sheets
-pip install -r requirements.txt
-```
-
 Antes de rodar, configure o arquivo **.streamlit/secrets.toml** com as credenciais do Google (ou variáveis de ambiente). Depois:
 
 ```bash
+cd 13-google-sheets
+pip install -r requirements.txt
 streamlit run app.py
 ```
 

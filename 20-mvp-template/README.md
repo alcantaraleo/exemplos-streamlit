@@ -1,14 +1,16 @@
 # 20 – Template MVP
 
+## Objetivo
+
 Template base reutilizável para projetos finais das equipes. Um MVP completo com **login simples** (apenas email), **dashboard** com inserir, listar e deletar itens, e **conexão com Supabase**. Tudo explicado passo a passo para ser fácil de entender e modificar.
 
-## O que você vai aprender
+## Conceitos ensinados
 
-- Login simples usando email salvo em `st.session_state`.
-- Redirecionamento: se não estiver logado, ir para a página de login.
-- Dashboard com: inserir item, listar itens, deletar item.
-- Conexão com Supabase e lógica de banco separada em `services/database.py`.
-- Estrutura multipágina no Streamlit.
+- Login simples usando email salvo em `st.session_state`
+- Redirecionamento: se não estiver logado, ir para a página de login
+- Dashboard com: inserir item, listar itens, deletar item
+- Conexão com Supabase e lógica de banco separada em `services/database.py`
+- Estrutura multipágina no Streamlit
 
 ## Pré-requisitos
 
@@ -49,6 +51,7 @@ SUPABASE_KEY = "sua-chave-anon-ou-service-role"
 ```
 
 Onde encontrar:
+
 - **SUPABASE_URL:** Painel do projeto > Settings > API > **Project URL**
 - **SUPABASE_KEY:** Painel do projeto > Settings > API > **anon public** (ou **service_role** se desativou o RLS)
 
@@ -58,6 +61,8 @@ Copie o arquivo `.env.example` para `.env` e preencha com suas credenciais. O ap
 
 ## Como executar
 
+Configure as credenciais do Supabase em `.streamlit/secrets.toml` ou `.env` (veja seção "Como configurar as credenciais" abaixo). Depois:
+
 ```bash
 cd 20-mvp-template
 pip install -r requirements.txt
@@ -65,6 +70,7 @@ streamlit run app.py
 ```
 
 O app vai abrir no navegador. Você verá:
+
 - Se não estiver logado: redirecionamento para a página de **Login**.
 - Na página **Login**: digite seu email e clique em **Entrar**.
 - Depois do login: acesse o **Dashboard** pelo menu lateral para inserir, listar e excluir itens.
@@ -84,6 +90,7 @@ O app vai abrir no navegador. Você verá:
 ## Próximos passos
 
 Depois de entender este template, você pode:
+
 - Adicionar **edição** de itens (UPDATE).
 - Associar itens ao usuário (coluna `email` na tabela).
 - Aprender sobre RLS (Row Level Security) para deixar o banco mais seguro.

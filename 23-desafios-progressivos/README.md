@@ -1,6 +1,27 @@
 # 23 – Desafios progressivos com temas ODS
 
+## Objetivo
+
 Este conjunto de **5 desafios** foi criado para quem já conhece o básico do Streamlit e quer evoluir um app do zero até um projeto pronto para apresentar. Cada desafio acrescenta uma camada nova (páginas, banco de dados, métricas, pitch) e está ligado a um **Objetivo de Desenvolvimento Sustentável (ODS)** da ONU.
+
+## Conceitos ensinados
+
+- Desafio 1: formulários, validação, session state, layout
+- Desafio 2: estrutura multipágina, pasta pages/
+- Desafio 3: Supabase, banco na nuvem, credenciais
+- Desafio 4: métricas, gráficos, visualização de dados
+- Desafio 5: pitch, apresentação, mensagem principal
+
+## Como executar
+
+Cada desafio é uma especificação: você cria o `app.py` na pasta do desafio com base nos requisitos. Depois de implementar:
+
+```bash
+cd 23-desafios-progressivos/desafio-X-nome
+streamlit run app.py
+```
+
+_Pré-requisito: Python e Streamlit instalados (veja [01-instalacao](../01-instalacao))._
 
 ## Para quem é
 

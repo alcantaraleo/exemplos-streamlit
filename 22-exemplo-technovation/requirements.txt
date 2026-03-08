@@ -1,5 +1,5 @@
 # Dependências para o exemplo Technovation - ODS 12
 # Instale com: pip install -r requirements.txt
 
-streamlit>=1.34.0
+streamlit>=1.55.0
 pandas>=1.5.0

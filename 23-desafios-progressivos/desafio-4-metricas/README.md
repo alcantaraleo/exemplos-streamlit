@@ -1,10 +1,29 @@
 # Desafio 4 – Adicionar métricas
 
+## Objetivo
+
+**Adicionar métricas e gráficos** ao seu app, conectado ao **ODS 3** (Saúde e bem-estar). As métricas podem ser: total de litros consumidos, média por dia, comparação entre períodos. Os gráficos ajudam a ver tendências: evolução ao longo do tempo, comparação entre dias da semana. Use `st.metric`, `st.line_chart` e `st.bar_chart` do Streamlit.
+
+## Conceitos ensinados
+
+- st.metric para exibir métricas
+- st.line_chart e st.bar_chart para gráficos
+- Preparação de dados (DataFrame) para visualização
+
+## Como executar
+
+Depois de implementar o app (continuando do Desafio 3):
+
+```bash
+cd 23-desafios-progressivos/desafio-4-metricas
+streamlit run app.py
+```
+
+_Pré-requisito: Desafio 3 concluído; dependências do Supabase se usar banco na nuvem._
+
 ## Contexto
 
 O **ODS 3** (Saúde e bem-estar) incentiva hábitos saudáveis e bem-estar em todas as idades. Visualizar a evolução dos dados em gráficos e métricas ajuda a entender padrões e definir metas — por exemplo, reduzir o consumo de água ou manter uma média diária.
-
-Neste desafio, você vai **adicionar métricas e gráficos** ao seu app. As métricas podem ser: total de litros consumidos, média por dia, comparação entre períodos. Os gráficos ajudam a ver tendências: evolução ao longo do tempo, comparação entre dias da semana, etc. Use `st.metric`, `st.line_chart` e `st.bar_chart` do Streamlit.
 
 ## Requisitos técnicos mínimos
 

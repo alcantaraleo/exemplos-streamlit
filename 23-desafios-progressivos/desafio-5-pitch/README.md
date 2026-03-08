@@ -1,10 +1,29 @@
 # Desafio 5 – Preparar para pitch
 
+## Objetivo
+
+**Preparar seu app para um pitch** — uma apresentação curta em que você explica o problema, a solução e o impacto, conectado ao **ODS 4** (Educação de qualidade). O objetivo é ter uma página "Sobre" ou "Apresentação" clara e um roteiro de 2 a 3 minutos para defender o projeto. Isso é útil para Technovation, feiras de ciência, hackathons ou apresentações na escola.
+
+## Conceitos ensinados
+
+- Estrutura de pitch (problema, solução, impacto)
+- Página "Sobre" ou "Apresentação" no app
+- Roteiro de apresentação e mensagem principal
+
+## Como executar
+
+Depois de implementar a página de pitch no seu app (continuando dos desafios anteriores):
+
+```bash
+cd 23-desafios-progressivos/desafio-5-pitch
+streamlit run app.py
+```
+
+_Pré-requisito: Desafios 1 a 4 concluídos._
+
 ## Contexto
 
 O **ODS 4** (Educação de qualidade) busca garantir educação inclusiva e de qualidade para todos. Um app que ensina ou apoia bons hábitos (como consumo responsável de água) pode ser apresentado como solução educacional.
-
-Neste desafio, você vai **preparar seu app para um pitch** — uma apresentação curta em que você explica o problema, a solução e o impacto. O objetivo é ter uma página "Sobre" ou "Apresentação" clara e um roteiro de 2 a 3 minutos para defender o projeto. Isso é útil para Technovation, feiras de ciência, hackathons ou apresentações na escola.
 
 ## Requisitos técnicos mínimos
 

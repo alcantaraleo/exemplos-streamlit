@@ -10,6 +10,7 @@ A linguagem é simples e o código é comentado para facilitar o aprendizado.
 
 import streamlit as st
 
+# 1. Coletar input
 # ----- Título na página principal -----
 st.title("Layout: Sidebar e colunas")
 
@@ -31,6 +32,7 @@ intervalo = st.sidebar.slider(
     (25.0, 75.0),  # valor inicial do intervalo
 )
 
+# 3. Exibir resultado
 # Mostramos na tela o que foi escolhido na sidebar
 st.write("Você escolheu ser contactado por:", como_contato)
 st.write("O intervalo escolhido foi:", intervalo)

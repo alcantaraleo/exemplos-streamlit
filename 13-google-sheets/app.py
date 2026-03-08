@@ -24,10 +24,12 @@ st.write(
     "planilha do Google Sheets a partir do Streamlit."
 )
 
+# 2. Processar dados
 # ----- Verificar se as credenciais existem -----
 # Em um app real, você usaria st.secrets para acessar as chaves do Google.
 # Como não temos as credenciais aqui, mostramos instruções.
 if "google_sheets" not in st.secrets:
+    # 3. Exibir resultado
     st.warning(
         "Para usar o Google Sheets, configure as credenciais no arquivo "
         "**.streamlit/secrets.toml**. Veja o README desta pasta para o passo a passo."
@@ -40,6 +42,7 @@ if "google_sheets" not in st.secrets:
         "5) Coloque as credenciais no secrets.toml."
     )
 else:
+    # 3. Exibir resultado
     # Quando as credenciais estiverem configuradas, aqui você usaria
     # gspread para abrir a planilha e ler os dados. Exemplo:
     # import gspread

@@ -1,10 +1,29 @@
 # Desafio 1 – App local sem banco
 
+## Objetivo
+
+Criar um app simples em **uma única página** para registrar o consumo diário de água (em litros), conectado ao **ODS 6** (Água potável e saneamento). Os dados ficam na memória (`st.session_state`) ou em uma lista em Python — **não use banco de dados** ainda. O foco é fazer um fluxo básico funcionar: formulário, validação e listagem na tela.
+
+## Conceitos ensinados
+
+- Formulários com campos de data e número
+- Uso de `st.session_state` para manter dados na sessão
+- Validação e organização de layout
+
+## Como executar
+
+Depois de implementar o app, crie o arquivo `app.py` nesta pasta e execute:
+
+```bash
+cd 23-desafios-progressivos/desafio-1-app-local
+streamlit run app.py
+```
+
+_Pré-requisito: Python e Streamlit instalados (veja [01-instalacao](../../01-instalacao))._
+
 ## Contexto
 
 O **ODS 6** (Água potável e saneamento) da ONU visa garantir água limpa e saneamento para todos. Um jeito de contribuir é acompanhar o próprio consumo de água em casa ou na escola.
-
-Neste desafio, você vai criar um app simples em **uma única página** para registrar o consumo diário de água (em litros). Os dados podem ficar na memória (`st.session_state`) ou em uma lista em Python — **não use banco de dados** ainda. O foco é fazer um fluxo básico funcionar: formulário, validação e listagem na tela.
 
 ## Requisitos técnicos mínimos
 

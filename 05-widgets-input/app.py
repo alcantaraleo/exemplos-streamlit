@@ -11,10 +11,12 @@ import streamlit as st
 st.set_page_config(page_title="Widgets", layout="wide")
 st.title("Widgets – controles para o usuário")
 
+# 1. Coletar input
 # ----- CAIXA DE TEXTO (text_input) -----
 # O usuário digita um texto. O valor fica na variável "nome".
 nome = st.text_input("Digite seu nome:", placeholder="Ex: Maria")
 
+# 3. Exibir resultado
 if nome:
     st.success(f"Olá, {nome}! Bem-vindo(a) ao app.")
 

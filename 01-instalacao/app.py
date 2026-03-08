@@ -10,6 +10,7 @@ Como rodar:
 
 import streamlit as st
 
+# 3. Exibir resultado
 # Título grande na página
 st.title("Olá! Sua instalação funcionou!")
 
