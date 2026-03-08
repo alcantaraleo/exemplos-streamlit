@@ -65,7 +65,7 @@ def criar_tabela_se_nao_existir():
     """
     con = None
     try:
-        # _conectar() fica dentro do try para evitar NameError no finally
+        # Primeiro criamos a conexão aqui dentro: se der erro, não tentamos fechar algo que não foi aberto
         con = _conectar()
         # SQL para criar a tabela. IF NOT EXISTS evita erro se já existir.
         sql = """
