@@ -12,7 +12,13 @@ com campos de texto e número, e exibir os dados em uma tabela.
 import os
 import streamlit as st
 import pandas as pd
+from dotenv import load_dotenv
 from services.database import buscar_registros, inserir_registro
+
+# ----- Carrega variáveis de ambiente do arquivo .env (se existir) -----
+# load_dotenv() lê o arquivo .env e coloca as variáveis no os.environ
+# Se o arquivo não existir, simplesmente não faz nada (sem erro)
+load_dotenv()
 
 # ----- Configuração da página -----
 # Define o título que aparece na aba do navegador e usa layout largo
@@ -104,10 +110,17 @@ st.subheader("Registros salvos")
 st.write("Abaixo aparecem todos os registros que estão no banco Supabase.")
 
 # Chama a função que faz SELECT * na tabela registros
+# Existem 3 possibilidades de retorno:
+# - None: aconteceu um erro (conexão, permissão ou tabela não existe)
+# - [] (lista vazia): conexão ok, mas ainda não há registros na tabela
+# - lista com dados: encontramos registros para mostrar
 registros = buscar_registros()
 
-if not registros:
-    # Se a lista estiver vazia, pode ser que não há dados ou deu erro
+if registros is None:
+    # None significa que houve um erro ao buscar (conexão, permissão, tabela inexistente)
+    st.error("Não foi possível carregar os registros. Verifique se a tabela 'registros' existe e as credenciais estão corretas.")
+elif len(registros) == 0:
+    # Lista vazia: conexão funcionou, mas a tabela não tem dados ainda
     st.info("Nenhum registro encontrado. Adicione um usando o formulário acima.")
 else:
     # Converte a lista de dicionários em DataFrame do pandas
