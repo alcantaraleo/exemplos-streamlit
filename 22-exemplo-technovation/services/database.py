@@ -63,8 +63,10 @@ def criar_tabela_se_nao_existir():
     - quantidade: quanto foi desperdiçado (em gramas, unidades, etc.)
     - data: data e hora em que foi registrado
     """
-    con = _conectar()
+    con = None
     try:
+        # Primeiro criamos a conexão aqui dentro: se der erro, não tentamos fechar algo que não foi aberto
+        con = _conectar()
         # SQL para criar a tabela. IF NOT EXISTS evita erro se já existir.
         sql = """
         CREATE TABLE IF NOT EXISTS desperdicio (
@@ -77,7 +79,8 @@ def criar_tabela_se_nao_existir():
         con.execute(sql)
         con.commit()
     finally:
-        con.close()
+        if con is not None:
+            con.close()
 
 
 def inserir_registro(nome, quantidade):
@@ -134,7 +137,7 @@ def buscar_todos_registros():
         return []
 
 
-def calcular_total_desperdiçado():
+def calcular_total_desperdicado():
     """
     Soma a quantidade de todos os registros de desperdício.
 
