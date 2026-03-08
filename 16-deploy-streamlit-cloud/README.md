@@ -32,7 +32,7 @@ git remote add origin https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
 git push -u origin main
 ```
 
-**Importante:** O Streamlit Cloud precisa que o arquivo principal do app e o `requirements.txt` estejam no repositório. Se seu app está na pasta `16-deploy-streamlit-cloud`, o caminho do arquivo será `16-deploy-streamlit-cloud/app.py`. O `requirements.txt` nesta pasta será usado automaticamente.
+**Importante:** O Streamlit Community Cloud precisa que o arquivo principal do app e o `requirements.txt` estejam no repositório. Se seu app está na pasta `16-deploy-streamlit-cloud`, o caminho do arquivo será `16-deploy-streamlit-cloud/app.py`. O `requirements.txt` nesta pasta será usado automaticamente.
 
 ### 2. Conectar ao Streamlit Community Cloud
 
