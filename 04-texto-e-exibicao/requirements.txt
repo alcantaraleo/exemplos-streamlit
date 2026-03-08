@@ -1,0 +1,4 @@
+# Dependências do exemplo 04 - Texto e exibição
+# Instale com: pip install -r requirements.txt
+
+streamlit>=1.55.0

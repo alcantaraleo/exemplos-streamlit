@@ -13,6 +13,7 @@ import pandas as pd
 st.set_page_config(page_title="Dados e tabelas", layout="wide")
 st.title("Exibindo tabelas de dados")
 
+# 2. Processar dados
 # ----- Criando dados simples com pandas -----
 # DataFrame é como uma planilha: tem colunas e linhas.
 # Aqui criamos uma tabela com nomes de alunos e notas.
@@ -23,6 +24,7 @@ dados = {
 }
 tabela = pd.DataFrame(dados)
 
+# 3. Exibir resultado
 # ----- st.dataframe -----
 # Tabela interativa: o usuário pode rolar, ordenar clicando no nome da coluna, etc.
 st.header("Tabela interativa (st.dataframe)")

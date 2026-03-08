@@ -21,6 +21,7 @@ st.set_page_config(
     layout="centered",
 )
 
+# 3. Exibir resultado
 # ----- Título e introdução -----
 st.title("☁️ Exemplo de Deploy no Streamlit Community Cloud")
 st.markdown(

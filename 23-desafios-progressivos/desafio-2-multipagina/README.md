@@ -1,10 +1,29 @@
 # Desafio 2 – Transformar em multipágina
 
+## Objetivo
+
+**Transformar o app do Desafio 1** em um app com **várias páginas**, conectado ao **ODS 11** (Cidades e comunidades sustentáveis). Em vez de tudo em uma tela só, você terá páginas separadas para: início, registro de consumo, histórico e dicas de economia de água. O Streamlit usa a pasta `pages/` para isso — cada arquivo `.py` vira um item no menu lateral.
+
+## Conceitos ensinados
+
+- Estrutura multipágina com pasta `pages/`
+- Navegação pelo menu lateral
+- Organização do código em múltiplos arquivos
+
+## Como executar
+
+Depois de implementar o app:
+
+```bash
+cd 23-desafios-progressivos/desafio-2-multipagina
+streamlit run app.py
+```
+
+_Pré-requisito: Python e Streamlit instalados (veja [01-instalacao](../../01-instalacao))._
+
 ## Contexto
 
 O **ODS 11** (Cidades e comunidades sustentáveis) incentiva cidades mais inclusivas, seguras e sustentáveis. Uma forma de contribuir é divulgar práticas de consumo responsável e economia de recursos, como água.
-
-Neste desafio, você vai **transformar o app do Desafio 1** em um app com **várias páginas**. Em vez de tudo em uma tela só, você terá páginas separadas para: início, registro de consumo, histórico e dicas de economia de água. O Streamlit usa a pasta `pages/` para isso — cada arquivo `.py` vira um item no menu lateral.
 
 ## Requisitos técnicos mínimos
 

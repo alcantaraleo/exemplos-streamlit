@@ -10,6 +10,8 @@ import streamlit as st
 
 st.set_page_config(page_title="Temas e cores", layout="wide")
 st.title("App com tema colorido")
+
+# 3. Exibir resultado
 st.write(
     "As cores deste app foram configuradas no arquivo **.streamlit/config.toml**. "
     "Assim o app fica mais divertido e fácil de identificar."

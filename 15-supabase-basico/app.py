@@ -59,6 +59,7 @@ st.markdown(
 
 st.divider()
 
+# 1. Coletar input
 # ----- Formulário para adicionar registro -----
 # Usamos st.columns para deixar os campos lado a lado (mais bonito)
 col1, col2, col3 = st.columns([2, 2, 1])
@@ -78,6 +79,7 @@ with col3:
     st.write("")  # Espaço para alinhar com os inputs
     salvar_clicado = st.button("Salvar", type="primary")
 
+# 2. Processar dados
 # ----- Processar quando o usuário clicar em Salvar -----
 if salvar_clicado:
     # Validação: nome não pode estar vazio
@@ -99,6 +101,7 @@ if salvar_clicado:
 
 st.divider()
 
+# 3. Exibir resultado
 # ----- Listagem de todos os registros -----
 st.subheader("Registros salvos")
 st.write("Abaixo aparecem todos os registros que estão no banco Supabase.")

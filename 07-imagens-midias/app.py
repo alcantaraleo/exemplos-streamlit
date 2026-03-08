@@ -11,6 +11,7 @@ import streamlit as st
 st.set_page_config(page_title="Imagens e mídias", layout="wide")
 st.title("Imagens, áudio e vídeo")
 
+# 3. Exibir resultado
 # ----- IMAGEM -----
 # st.image pode receber: arquivo local (caminho) ou URL da internet.
 # caption = legenda que aparece embaixo da imagem.

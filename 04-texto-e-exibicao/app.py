@@ -8,6 +8,7 @@ Usamos cores e organização para deixar a página atrativa.
 
 import streamlit as st
 
+# 3. Exibir resultado
 # ----- Configuração da página (opcional) -----
 # Deixamos a página em modo "wide" para usar mais espaço na tela
 st.set_page_config(page_title="Texto e exibição", layout="wide")

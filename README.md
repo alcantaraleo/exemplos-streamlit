@@ -31,12 +31,33 @@ Cada pasta tem um número e um nome que indica o tema:
 ## Como usar
 
 1. **Instalação:** Siga o [01-instalacao/README.md](01-instalacao/README.md) para instalar Python e o Streamlit.
-2. **Rodar um exemplo:** Entre na pasta do exemplo e execute:
+2. **Rodar um exemplo:** Entre na pasta do exemplo, instale as dependências e execute:
    ```bash
    cd 02-fundamentos
+   pip install -r requirements.txt
    streamlit run app.py
    ```
-3. O navegador abrirá o app. Cada pasta tem seu próprio **README.md** com instruções detalhadas. Alguns exemplos (12, 13, 15, 16, 20, 22) têm **requirements.txt** próprio — use `pip install -r requirements.txt` antes de rodar.
+3. O navegador abrirá o app. Cada pasta tem seu próprio **README.md** (Objetivo, Conceitos ensinados, Como executar) e **requirements.txt** com as dependências necessárias.
+
+## O que é o requirements.txt?
+
+O **requirements.txt** é um arquivo de texto que lista as **bibliotecas** (peças de código prontas) que um exemplo precisa para funcionar. Pense nele como uma "lista de compras": em vez de procurar cada biblioteca na internet, você usa um único comando e o Python instala tudo de uma vez.
+
+- **Para que serve:** Garante que seu computador tenha as mesmas bibliotecas que o exemplo usa (por exemplo, Streamlit para criar o app, pandas para trabalhar com tabelas).
+- **Como usar:** Dentro da pasta do exemplo, execute `pip install -r requirements.txt` antes de rodar o app. O comando lê a lista e instala cada item automaticamente.
+- **Onde fica:** Cada pasta de exemplo tem seu próprio **requirements.txt**, porque alguns exemplos precisam de bibliotecas extras (como Supabase ou Google Sheets).
+
+## Desafios individuais
+
+Dentro de [23-desafios-progressivos](23-desafios-progressivos) há 5 desafios para praticar:
+
+| Desafio   | Tema                 | Link                                                                    |
+| --------- | -------------------- | ----------------------------------------------------------------------- |
+| Desafio 1 | App local (ODS 6)    | [desafio-1-app-local](23-desafios-progressivos/desafio-1-app-local)     |
+| Desafio 2 | Multipágina (ODS 11) | [desafio-2-multipagina](23-desafios-progressivos/desafio-2-multipagina) |
+| Desafio 3 | Supabase (ODS 13)    | [desafio-3-supabase](23-desafios-progressivos/desafio-3-supabase)       |
+| Desafio 4 | Métricas (ODS 3)     | [desafio-4-metricas](23-desafios-progressivos/desafio-4-metricas)       |
+| Desafio 5 | Pitch (ODS 4)        | [desafio-5-pitch](23-desafios-progressivos/desafio-5-pitch)             |
 
 ## Documentação do Streamlit
 

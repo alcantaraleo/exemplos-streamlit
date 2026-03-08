@@ -1,6 +1,28 @@
 # 01 – Instalação de Python e Streamlit
 
-Nesta pasta você encontra **instruções claras** para instalar o Python e o Streamlit no seu computador. Depois disso, você poderá rodar todos os exemplos deste repositório.
+## Objetivo
+
+Este exemplo traz **instruções claras** para instalar o Python e o Streamlit no seu computador e verificar se a instalação funcionou. Depois disso, você poderá rodar todos os exemplos deste repositório.
+
+## Conceitos ensinados
+
+- Instalação do Python no Windows, Mac ou Linux
+- Instalação do Streamlit via pip
+- Execução básica de um app com `streamlit run app.py`
+
+## Como executar
+
+**Se ainda não instalou o Python e o Streamlit**, siga os passos abaixo. **Se já instalou**, vá direto para:
+
+```bash
+cd 01-instalacao
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+O navegador abrirá com uma página mostrando "Olá! Sua instalação funcionou!" — está tudo certo!
+
+---
 
 ## O que você vai precisar
 
@@ -67,16 +89,21 @@ O **Streamlit** é uma biblioteca que permite criar aplicativos web em Python de
    ```bash
    cd 01-instalacao
    ```
-2. Rode o aplicativo de teste:
+2. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Rode o aplicativo de teste:
    ```bash
    streamlit run app.py
    ```
-3. O navegador deve abrir sozinho com uma página mostrando **"Olá! Sua instalação funcionou!"**. Se isso acontecer, está tudo certo.
+4. O navegador deve abrir sozinho com uma página mostrando **"Olá! Sua instalação funcionou!"**. Se isso acontecer, está tudo certo.
 
 ## Estrutura desta pasta
 
 - **README.md** – Este arquivo (instruções de instalação).
 - **app.py** – Um aplicativo bem simples só para testar se o Streamlit está funcionando.
+- **requirements.txt** – Dependências do exemplo.
 
 ## Próximo passo
 

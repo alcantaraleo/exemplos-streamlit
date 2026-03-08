@@ -1,0 +1,4 @@
+# Dependências do exemplo 05 - Widgets e input
+# Instale com: pip install -r requirements.txt
+
+streamlit>=1.55.0

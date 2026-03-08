@@ -30,6 +30,7 @@ if "logado" not in st.session_state:
 if "nome_usuario" not in st.session_state:
     st.session_state.nome_usuario = ""
 
+# 1. Coletar input
 # ----- Se NÃO está logado: mostrar formulário de login -----
 if not st.session_state.logado:
     st.title("Faça login")
@@ -41,15 +42,18 @@ if not st.session_state.logado:
         enviar = st.form_submit_button("Entrar")
 
     if enviar:
+        # 2. Processar dados
         # Verificar se o usuário existe e se a senha está correta
         if usuario in usuarios_senhas and usuarios_senhas[usuario] == senha:
             st.session_state.logado = True
             st.session_state.nome_usuario = usuario
+            # Avisar o usuário que o login foi feito com sucesso
             st.success("Login feito com sucesso!")
             st.rerun()
         else:
             st.error("Usuário ou senha incorretos. Tente de novo.")
 
+# 3. Exibir resultado
 # ----- Se ESTÁ logado: mostrar conteúdo e botão Sair -----
 else:
     st.title(f"Bem-vindo(a), {st.session_state.nome_usuario}!")

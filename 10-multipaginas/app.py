@@ -9,6 +9,8 @@ links para cada arquivo da pasta "pages/" no menu lateral.
 import streamlit as st
 
 st.set_page_config(page_title="App multipáginas", layout="wide")
+
+# 3. Exibir resultado
 st.title("Página inicial")
 st.write(
     "Bem-vindo! Este app tem várias páginas. "

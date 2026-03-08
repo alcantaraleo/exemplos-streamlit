@@ -1,14 +1,16 @@
 # 15 – Supabase básico
 
-Aqui você aprende a **conectar o Streamlit a um banco de dados** usando o **Supabase**. O exemplo mostra como **salvar** (INSERT) e **listar** (SELECT) registros com nome e valor. Tudo explicado passo a passo para ficar fácil de entender.
+## Objetivo
 
-## O que você vai aprender
+Este exemplo ensina a **conectar o Streamlit a um banco de dados** usando o **Supabase**. O exemplo mostra como **salvar** (INSERT) e **listar** (SELECT) registros com nome e valor. Tudo explicado passo a passo para ficar fácil de entender.
 
-- Como configurar o acesso ao Supabase (URL e chave da API).
-- Como fazer SELECT para buscar dados da tabela.
-- Como fazer INSERT para adicionar novos registros.
-- Usar **st.secrets** para guardar credenciais sem colocar no código.
-- Tratar erros com try/except de forma simples.
+## Conceitos ensinados
+
+- Como configurar o acesso ao Supabase (URL e chave da API)
+- Como fazer SELECT para buscar dados da tabela
+- Como fazer INSERT para adicionar novos registros
+- Usar **st.secrets** para guardar credenciais sem colocar no código
+- Tratar erros com try/except de forma simples
 
 ## Pré-requisitos
 
@@ -50,6 +52,7 @@ SUPABASE_KEY = "sua-chave-anon-ou-service-role"
 ```
 
 Onde encontrar:
+
 - **SUPABASE_URL:** Painel do projeto > Settings > API > **Project URL**
 - **SUPABASE_KEY:** Painel do projeto > Settings > API > **anon public** (ou **service_role** se desativou o RLS)
 
@@ -66,6 +69,7 @@ streamlit run app.py
 ```
 
 O app vai abrir no navegador. Você verá:
+
 - Um formulário para digitar **nome** e **valor**
 - Um botão **Salvar** para adicionar ao banco
 - Uma lista com todos os registros salvos
@@ -81,6 +85,7 @@ O app vai abrir no navegador. Você verá:
 ## Próximos passos
 
 Depois de entender este exemplo, você pode:
+
 - Adicionar um botão para **excluir** registros (DELETE).
 - Adicionar **edição** de registros (UPDATE).
 - Aprender sobre RLS (Row Level Security) para deixar o banco mais seguro.

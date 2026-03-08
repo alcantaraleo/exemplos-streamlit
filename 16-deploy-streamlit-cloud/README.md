@@ -1,13 +1,25 @@
 # 16 – Deploy no Streamlit Community Cloud
 
-Aqui você aprende a **publicar seu app Streamlit na internet** usando o **Streamlit Community Cloud** (gratuito). O exemplo mostra como usar **st.secrets** para configurar credenciais e mensagens de forma segura, sem colocar no código.
+## Objetivo
 
-## O que você vai aprender
+Este exemplo ensina a **publicar seu app Streamlit na internet** usando o **Streamlit Community Cloud** (gratuito). O exemplo mostra como usar **st.secrets** para configurar credenciais e mensagens de forma segura, sem colocar no código.
 
-- Como subir seu projeto para o GitHub.
-- Como conectar o repositório ao Streamlit Community Cloud.
-- Como configurar secrets (credenciais, chaves) de forma segura.
-- Como usar `st.secrets` no código para ler configurações.
+## Conceitos ensinados
+
+- Como subir seu projeto para o GitHub
+- Como conectar o repositório ao Streamlit Community Cloud
+- Como configurar secrets (credenciais, chaves) de forma segura
+- Como usar `st.secrets` no código para ler configurações
+
+## Como executar
+
+Configure `.streamlit/secrets.toml` com suas credenciais (veja seção "Executar localmente" abaixo). Depois:
+
+```bash
+cd 16-deploy-streamlit-cloud
+pip install -r requirements.txt
+streamlit run app.py
+```
 
 ## Passo a passo para deploy
 

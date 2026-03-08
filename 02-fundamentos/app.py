@@ -12,6 +12,7 @@ Referência: https://docs.streamlit.io/get-started/fundamentals/main-concepts
 import streamlit as st
 import pandas as pd
 
+# 1. Exibir texto inicial
 # ----- Título da página -----
 # st.title mostra um título grande no topo do app
 st.title("Meu primeiro app Streamlit")
@@ -21,6 +22,7 @@ st.title("Meu primeiro app Streamlit")
 # texto, números, tabelas, gráficos. O Streamlit escolhe o melhor jeito de exibir.
 st.write("Aqui está nossa primeira tentativa de usar dados para criar uma tabela:")
 
+# 2. Processar dados
 # ----- Criando uma tabela (DataFrame) -----
 # DataFrame é uma tabela com colunas e linhas. Aqui criamos uma bem simples.
 # Coluna 1: números de 1 a 4. Coluna 2: números 10, 20, 30, 40.
@@ -31,6 +33,7 @@ df = pd.DataFrame(
     }
 )
 
+# 3. Exibir resultado
 # ----- "Magic" do Streamlit -----
 # Quando você coloca uma variável sozinha em uma linha (como "df" abaixo),
 # o Streamlit automaticamente mostra ela na tela, como se fosse st.write(df).

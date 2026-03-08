@@ -1,0 +1,4 @@
+# Dependências do exemplo 06 - Formulários e validação
+# Instale com: pip install -r requirements.txt
+
+streamlit>=1.55.0

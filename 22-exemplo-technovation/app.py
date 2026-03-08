@@ -22,9 +22,11 @@ st.set_page_config(
     layout="wide",
 )
 
+# 2. Processar dados
 # ----- Inicializar Session State -----
 garantir_sessao_inicializada()
 
+# 3. Exibir resultado
 # ----- Página inicial -----
 st.title("🌍 Redução de Desperdício Alimentar")
 st.markdown(

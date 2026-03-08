@@ -1,10 +1,10 @@
 # 22 – Exemplo Technovation – ODS 12 (Redução de desperdício alimentar)
 
-Este é um **exemplo completo** de app Streamlit alinhado ao **ODS 12** (Consumo e Produção Responsáveis) da ONU. O foco é a **redução do desperdício de alimentos**.
+## Objetivo
 
-Ideal para equipes do **Technovation** e para quem quer aprender a criar apps que ajudam a resolver problemas reais do mundo.
+Este é um **exemplo completo** de app Streamlit alinhado ao **ODS 12** (Consumo e Produção Responsáveis) da ONU. O foco é a **redução do desperdício de alimentos**. Ideal para equipes do **Technovation** e para quem quer aprender a criar apps que ajudam a resolver problemas reais do mundo.
 
-## O que você vai aprender
+## Conceitos ensinados
 
 - Como criar um app com **várias páginas** (Login, Dashboard, Sobre)
 - Como fazer um **login simples** (usando Session State)
@@ -13,29 +13,17 @@ Ideal para equipes do **Technovation** e para quem quer aprender a criar apps qu
 - Como mostrar **métricas** e **gráficos** com os dados
 - Como organizar o código com **separação de responsabilidades**
 
-## Pré-requisitos
-
-- Python 3.8 ou superior
-- Streamlit 1.34 ou superior (necessário para `st.page_link`, usada na navegação entre páginas)
-- Nada mais! O SQLite já vem com o Python.
-
 ## Como executar
-
-1. Abra o terminal na pasta do projeto.
-2. Instale as dependências:
 
 ```bash
 cd 22-exemplo-technovation
 pip install -r requirements.txt
-```
-
-3. Rode o app:
-
-```bash
 streamlit run app.py
 ```
 
-4. O app vai abrir no navegador. Use o menu à esquerda para navegar.
+O app vai abrir no navegador. Use o menu à esquerda para navegar.
+
+**Pré-requisitos:** Python 3.8 ou superior. O SQLite já vem com o Python.
 
 ### Login (para testar)
 

@@ -1,10 +1,30 @@
 # Desafio 3 – Conectar Supabase
 
+## Objetivo
+
+**Conectar seu app ao Supabase** — um banco de dados na nuvem — conectado ao **ODS 13** (Ação contra a mudança global do clima). Os dados persistirão mesmo depois que você fecha o navegador e poderão ser acessados por mais de uma pessoa. Você vai criar uma tabela no Supabase, configurar credenciais com segurança e trocar a lógica em memória por funções que fazem `INSERT` e `SELECT` no banco.
+
+## Conceitos ensinados
+
+- Configuração do Supabase e credenciais (st.secrets)
+- INSERT e SELECT em banco de dados na nuvem
+- Tratamento de erros de conexão
+
+## Como executar
+
+Depois de implementar o app e configurar as credenciais em `.streamlit/secrets.toml`:
+
+```bash
+cd 23-desafios-progressivos/desafio-3-supabase
+pip install -r ../../15-supabase-basico/requirements.txt
+streamlit run app.py
+```
+
+_Pré-requisito: conta no [Supabase](https://supabase.com). Use o requirements.txt do exemplo [15-supabase-basico](../../15-supabase-basico) para as dependências._
+
 ## Contexto
 
 O **ODS 13** (Ação contra a mudança global do clima) trata de mitigar os efeitos das mudanças climáticas. Acompanhar consumo de água e outros recursos ajuda a reduzir desperdício e pegada ambiental.
-
-Neste desafio, você vai **conectar seu app ao Supabase** — um banco de dados na nuvem. Assim, os dados persistem mesmo depois que você fecha o navegador e podem ser acessados por mais de uma pessoa. Você vai criar uma tabela no Supabase, configurar credenciais com segurança e trocar a lógica em memória por funções que fazem `INSERT` e `SELECT` no banco.
 
 ## Requisitos técnicos mínimos
 

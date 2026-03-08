@@ -16,6 +16,7 @@ import streamlit as st
 st.set_page_config(page_title="Chat com LLM", layout="wide")
 st.title("App de chat")
 
+# 3. Exibir resultado
 # ----- Histórico de mensagens -----
 # Guardamos as mensagens em uma lista. Cada item é um dicionário com
 # "role" (quem falou: "user" ou "assistant") e "content" (o texto).
@@ -28,12 +29,14 @@ for msg in st.session_state.mensagens:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
 
+# 1. Coletar input
 # ----- Caixa para digitar nova mensagem -----
 # st.chat_input mostra o campo de texto na parte de baixo da tela.
 # Quando o usuário envia, o texto vem em "prompt".
 prompt = st.chat_input("Digite sua mensagem aqui...")
 
 if prompt:
+    # 2. Processar dados
     # 1) Adicionar a mensagem do usuário ao histórico
     st.session_state.mensagens.append({"role": "user", "content": prompt})
 
