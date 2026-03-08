@@ -12,9 +12,15 @@ import streamlit as st
 from supabase import create_client
 
 
+@st.cache_resource
 def obter_cliente():
     """
     Cria e retorna o cliente Supabase conectado ao projeto.
+
+    O @st.cache_resource faz o Streamlit guardar (cachear) o cliente em memória.
+    Assim, o cliente é criado apenas uma vez e reutilizado em todas as interações,
+    economizando tempo e recursos de rede. É como guardar um brinquedo em uma caixa
+    próxima, em vez de buscar no armário toda vez que precisar usar.
 
     As credenciais vêm de st.secrets (Streamlit) ou de variáveis de ambiente.
     Retorna None se as credenciais não estiverem configuradas ou houver erro.
@@ -55,13 +61,18 @@ def buscar_registros():
     Busca todos os registros da tabela 'registros' no Supabase.
 
     Faz um SELECT * na tabela.
-    Retorna uma lista de dicionários (cada um é uma linha) ou lista vazia se der erro.
+    Retorna uma lista de dicionários (cada um é uma linha),
+    lista vazia [] se a tabela não tiver dados,
+    ou None se ocorreu um erro de conexão/banco.
+
+    Distinguir None (erro) de [] (tabela vazia) ajuda a mostrar
+    mensagens diferentes para o usuário.
     """
     try:
         # Obtém o cliente conectado
         cliente = obter_cliente()
         if cliente is None:
-            return []
+            return None
 
         # .table("registros") aponta para a tabela chamada "registros"
         # .select("*") significa "pegue todas as colunas"
@@ -74,9 +85,9 @@ def buscar_registros():
         return dados
 
     except Exception:
-        # Em caso de erro (tabela não existe, sem permissão, etc), retornamos lista vazia
-        # Assim o app continua funcionando e podemos mostrar mensagem de erro se quiser
-        return []
+        # Em caso de erro (tabela não existe, sem permissão, etc), retornamos None
+        # Isso permite que o app mostre uma mensagem de erro específica
+        return None
 
 
 def inserir_registro(nome, valor):
