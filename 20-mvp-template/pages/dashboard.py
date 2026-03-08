@@ -52,6 +52,9 @@ if salvar_clicado:
         if sucesso:
             # ----- 3. Exibir resultado (sucesso) -----
             st.success(f"Item '{nome_limpo}' salvo com sucesso!")
+            # Limpa o campo de texto para que o usuário possa inserir outro item.
+            if "nome_inserir" in st.session_state:
+                del st.session_state["nome_inserir"]
             st.rerun()
         else:
             st.error("Não foi possível salvar. Verifique a tabela e as credenciais.")
