@@ -33,31 +33,36 @@ st.info(
     "clicar no ícone do caderno novamente para voltar aqui."
 )
 
-# Botão SAIR: vermelho, texto em caixa alta, zera o contador e redireciona
-# CSS abaixo estiliza apenas o botão no conteúdo principal (não o sidebar)
-st.markdown(
-    """
-    <style>
-    /* Estiliza o botão SAIR - alvo o bloco principal, não o sidebar */
-    section.main .stButton > button {
-        background-color: #DC3545 !important;
-        color: white !important;
-        font-weight: bold !important;
-        text-transform: uppercase;
-        border: none;
-    }
-    section.main .stButton > button:hover {
-        background-color: #c82333 !important;
-        color: white !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+# Botão SAIR dentro de um container com classe CSS específica
+# para que o estilo vermelho não afete outros botões adicionados futuramente
+container_sair = st.container()
+with container_sair:
+    st.markdown(
+        """
+        <style>
+        /* Estiliza apenas o botão SAIR, dentro do container com a classe abaixo */
+        .botao-sair-container .stButton > button {
+            background-color: #DC3545 !important;
+            color: white !important;
+            font-weight: bold !important;
+            text-transform: uppercase;
+            border: none;
+        }
+        .botao-sair-container .stButton > button:hover {
+            background-color: #c82333 !important;
+            color: white !important;
+        }
+        </style>
+        <div class="botao-sair-container">
+        """,
+        unsafe_allow_html=True,
+    )
 
-if st.button("SAIR", type="primary", use_container_width=True):
-    # Zerar o contador para que, ao voltar ao diário, o usuário precise
-    # dos X cliques novamente para reacessar esta página
-    if "cliques_secretos" in st.session_state:
-        st.session_state.cliques_secretos = 0
-    st.switch_page("app.py")
+    if st.button("SAIR", type="primary", use_container_width=True):
+        # Zerar o contador para que, ao voltar ao diário, o usuário precise
+        # dos X cliques novamente para reacessar esta página
+        if "cliques_secretos" in st.session_state:
+            st.session_state.cliques_secretos = 0
+        st.switch_page("app.py")
+
+    st.markdown("</div>", unsafe_allow_html=True)

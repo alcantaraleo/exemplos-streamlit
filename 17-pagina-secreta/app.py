@@ -9,6 +9,7 @@ várias vezes. Boa sorte!
 
 import streamlit as st
 from datetime import datetime
+from uuid import uuid4
 from menu import menu
 
 # Número de cliques necessários para descobrir a página secreta
@@ -28,19 +29,19 @@ if "entrada_em_edicao" not in st.session_state:
 if "cliques_secretos" not in st.session_state:
     st.session_state.cliques_secretos = 0
 
-# form_id muda quando queremos "limpar" o campo de texto (após salvar, cancelar, etc)
-# Assim criamos um widget novo em vez de modificar o existente (o Streamlit não permite)
-if "form_id" not in st.session_state:
-    st.session_state.form_id = 0
+# Quando precisamos limpar o campo (após salvar ou cancelar edição),
+# definimos o valor da key fixa como vazio ANTES de criar o widget
+if st.session_state.pop("limpar_texto", None):
+    st.session_state["texto_entrada"] = ""
 
 # Quando clicamos em "carregar" uma entrada, guardamos o texto aqui e rerunamos.
 # Na próxima execução, colocamos no estado do widget ANTES dele ser criado.
 if "carregar_texto" in st.session_state:
-    chave_texto = f"texto_entrada_{st.session_state.form_id}"
-    st.session_state[chave_texto] = st.session_state.carregar_texto
+    st.session_state["texto_entrada"] = st.session_state.carregar_texto
     del st.session_state["carregar_texto"]
 
-chave_texto = f"texto_entrada_{st.session_state.form_id}"
+# Key fixa para o campo de texto do diário (evita acumular keys antigas no session_state)
+chave_texto = "texto_entrada"
 
 # Mostrar o menu na lateral (só "Meu Diário" aparece)
 menu()
@@ -60,8 +61,8 @@ with col_icone:
             st.switch_page("pages/app_real.py")
 
 # Área para escrever a entrada do diário
-# Usamos key dinâmica (form_id) para poder "limpar" após salvar - incrementar form_id
-# cria um widget novo com valor vazio, evitando o erro de modificar session_state do widget
+# Key fixa "texto_entrada" - o valor é pré-definido no início do script quando precisamos
+# carregar texto de uma entrada existente ou limpar o campo após salvar
 st.text_area(
     "O que você quer escrever hoje?",
     height=150,
@@ -76,30 +77,34 @@ col_botao, _ = st.columns([1, 5])
 with col_botao:
     if em_modo_edicao:
         if st.button("Atualizar", type="primary"):
-            # Atualizar a entrada que está sendo editada
-            texto_novo = st.session_state.get(chave_texto, "")
-            for i, entrada in enumerate(st.session_state.entradas):
-                if entrada["id"] == st.session_state.entrada_em_edicao:
-                    st.session_state.entradas[i]["texto"] = texto_novo
-                    st.session_state.entradas[i]["data"] = datetime.now().strftime(
-                        "%d/%m/%Y %H:%M"
-                    )
-                    break
-            st.session_state.entrada_em_edicao = None
-            st.session_state.form_id += 1  # Novo form = campo limpo
-            st.rerun()
+            # Atualizar a entrada que está sendo editada - só atualiza se tiver texto
+            texto_novo = st.session_state.get(chave_texto, "").strip()
+            if texto_novo:
+                for i, entrada in enumerate(st.session_state.entradas):
+                    if entrada["id"] == st.session_state.entrada_em_edicao:
+                        st.session_state.entradas[i]["texto"] = texto_novo
+                        st.session_state.entradas[i]["data"] = datetime.now().strftime(
+                            "%d/%m/%Y %H:%M"
+                        )
+                        break
+                st.session_state.entrada_em_edicao = None
+                st.session_state["limpar_texto"] = True
+                st.rerun()
+            else:
+                st.warning("Digite algo antes de salvar!")
     else:
         if st.button("Salvar", type="primary"):
             # Criar nova entrada - só salva se tiver texto
             texto = st.session_state.get(chave_texto, "")
             if texto.strip():
                 nova_entrada = {
-                    "id": datetime.now().strftime("%Y%m%d%H%M%S"),
+                    # uuid4 garante ID único mesmo que duas entradas sejam salvas no mesmo segundo
+                    "id": str(uuid4()),
                     "texto": texto.strip(),
                     "data": datetime.now().strftime("%d/%m/%Y %H:%M"),
                 }
                 st.session_state.entradas.append(nova_entrada)
-                st.session_state.form_id += 1  # Novo form = campo limpo
+                st.session_state["limpar_texto"] = True
                 st.rerun()
             else:
                 st.warning("Digite algo antes de salvar!")
@@ -108,7 +113,7 @@ with col_botao:
 if em_modo_edicao:
     if st.button("Cancelar edição"):
         st.session_state.entrada_em_edicao = None
-        st.session_state.form_id += 1  # Novo form = campo limpo
+        st.session_state["limpar_texto"] = True
         st.rerun()
 
 st.divider()
@@ -149,7 +154,7 @@ else:
                     ]
                     if st.session_state.entrada_em_edicao == entrada["id"]:
                         st.session_state.entrada_em_edicao = None
-                        st.session_state.form_id += 1  # Limpar campo se estava editando
+                        st.session_state["limpar_texto"] = True
                     st.rerun()
 
             st.caption(f"Salvo em: {data_str}")
