@@ -1,0 +1,6 @@
+# Dependências para o exemplo Supabase + Streamlit.
+# Instale com: pip install -r requirements.txt
+
+streamlit>=1.28.0
+supabase>=2.0.0
+pandas>=1.5.0
