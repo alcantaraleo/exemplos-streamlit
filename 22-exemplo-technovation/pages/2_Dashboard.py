@@ -15,7 +15,7 @@ import pandas as pd
 from services.database import (
     inserir_registro,
     buscar_todos_registros,
-    calcular_total_desperdiçado,
+    calcular_total_desperdicado,
     buscar_dados_para_grafico,
 )
 from services.session import garantir_sessao_inicializada, CHAVE_LOGADO, CHAVE_NOME_USUARIO
@@ -79,7 +79,7 @@ if botao_salvar:
 st.divider()
 
 # ==================== FUNCIONALIDADE 2: Métrica total ====================
-total = calcular_total_desperdiçado()
+total = calcular_total_desperdicado()
 
 # Métricas em destaque - st.metric mostra um número grande com um rótulo
 col_metrica, _, _ = st.columns(3)

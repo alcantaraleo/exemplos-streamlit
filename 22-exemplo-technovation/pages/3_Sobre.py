@@ -43,7 +43,7 @@ col_esq, col_dir = st.columns(2)
 
 with col_esq:
     st.markdown(
-        "**1. Muita gente passa fome**  \n"  \n"
+        "**1. Muita gente passa fome**  \n"
         "Enquanto jogamos comida fora, milhões de pessoas no mundo não têm o que comer.\n\n"
         "**2. Desperdiça recursos**  \n"
         "Para produzir comida, usamos água, terra, energia. Desperdiçar comida = desperdiçar tudo isso.\n\n"
