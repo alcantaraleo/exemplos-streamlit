@@ -9,6 +9,7 @@ Você vai aprender a usar a biblioteca supabase-py, criar um formulário
 com campos de texto e número, e exibir os dados em uma tabela.
 """
 
+import os
 import streamlit as st
 import pandas as pd
 from services.database import buscar_registros, inserir_registro
@@ -19,25 +20,33 @@ st.set_page_config(page_title="Supabase Básico", layout="wide")
 
 # ----- Verificar se as credenciais existem -----
 # O Supabase precisa de URL e chave de API. Sem elas, não conseguimos conectar.
-# Guardamos em .streamlit/secrets.toml (não commitar no Git!)
-credenciais_ok = False
+# Aceitamos credenciais em st.secrets (secrets.toml) ou em variáveis de ambiente (.env)
+url = None
+key = None
 try:
     if "SUPABASE_URL" in st.secrets and "SUPABASE_KEY" in st.secrets:
-        credenciais_ok = True
+        url = st.secrets["SUPABASE_URL"]
+        key = st.secrets["SUPABASE_KEY"]
 except (KeyError, AttributeError, TypeError):
     pass
+if not url:
+    url = os.environ.get("SUPABASE_URL")
+if not key:
+    key = os.environ.get("SUPABASE_KEY")
+credenciais_ok = bool(url and key)
 
 # Se as credenciais não estiverem configuradas, mostramos instruções
 if not credenciais_ok:
     st.warning(
         "Para usar o Supabase, configure as credenciais no arquivo "
-        "**.streamlit/secrets.toml** dentro desta pasta. Veja o README para o passo a passo."
+        "**.streamlit/secrets.toml** ou em **variáveis de ambiente** (SUPABASE_URL e SUPABASE_KEY). "
+        "Veja o README para o passo a passo."
     )
     st.info(
         "Resumo: 1) Crie um projeto no Supabase (supabase.com). "
         "2) Crie a tabela 'registros' com os campos nome e valor. "
         "3) Copie a URL e a chave anon do projeto. "
-        "4) Coloque no arquivo .streamlit/secrets.toml com SUPABASE_URL e SUPABASE_KEY."
+        "4) Coloque em .streamlit/secrets.toml ou em variáveis de ambiente (SUPABASE_URL e SUPABASE_KEY)."
     )
     st.stop()
 

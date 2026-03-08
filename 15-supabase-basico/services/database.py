@@ -44,7 +44,7 @@ def obter_cliente():
         cliente = create_client(url, key)
         return cliente
 
-    except Exception as erro:
+    except Exception:
         # Em caso de qualquer erro (rede, credencial inválida etc), retorna None
         # Assim evitamos que o app quebre e podemos mostrar mensagem amigável
         return None
@@ -73,7 +73,7 @@ def buscar_registros():
         dados = resposta.data if resposta.data else []
         return dados
 
-    except Exception as erro:
+    except Exception:
         # Em caso de erro (tabela não existe, sem permissão, etc), retornamos lista vazia
         # Assim o app continua funcionando e podemos mostrar mensagem de erro se quiser
         return []
@@ -110,7 +110,7 @@ def inserir_registro(nome, valor):
         # Se chegou aqui, não deu exceção, então deu certo
         return True
 
-    except Exception as erro:
+    except Exception:
         # Em caso de erro, retornamos False
         # O app pode mostrar st.error() com mensagem amigável
         return False
