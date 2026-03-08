@@ -16,7 +16,7 @@ import streamlit as st
 # ----- Configuração da página -----
 # Define o título e layout para ficar bonito no navegador
 st.set_page_config(
-    page_title="Deploy no Streamlit Cloud",
+    page_title="Deploy no Streamlit Community Cloud",
     page_icon="☁️",
     layout="centered",
 )
@@ -83,7 +83,7 @@ st.divider()
 # Aqui usamos a mensagem (do secret ou padrão) para exibir algo dinâmico
 st.subheader("🎨 Uso prático no app")
 
-st.write(f"A mensagem configurada será exibida aqui:")
+st.write("A mensagem configurada será exibida aqui:")
 st.markdown(f"### {mensagem}")
 
 st.divider()
