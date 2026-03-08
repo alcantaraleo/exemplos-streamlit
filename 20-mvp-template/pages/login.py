@@ -10,6 +10,17 @@ import streamlit as st
 
 st.set_page_config(page_title="Login - MVP Template", layout="wide")
 
+# ----- Proteção: se já está logado, redireciona para o dashboard -----
+# Evita que usuários autenticados vejam o formulário de login novamente.
+if st.session_state.get("logado", False):
+    st.success("Você já está logado!")
+    st.page_link(
+        "pages/dashboard.py",
+        label="Ir para o Dashboard",
+        icon=":material/arrow_forward:",
+    )
+    st.stop()
+
 st.title("Faça login")
 st.write("Digite seu email para entrar no app. Esse é um login simplificado para aprendizado.")
 
@@ -40,6 +51,11 @@ if enviar:
         st.session_state.logado = True
 
         # ----- 3. Exibir resultado -----
-        st.success("Login feito com sucesso! Redirecionando...")
-        # Redirecionamos para o dashboard
-        st.switch_page("pages/dashboard.py")
+        st.success("Login feito com sucesso!")
+        # Usamos st.page_link em vez de st.switch_page porque o switch_page tem um bug
+        # (Streamlit #11115) que perde o session_state na navegação. O page_link preserva.
+        st.page_link(
+            "pages/dashboard.py",
+            label="Ir para o Dashboard",
+            icon=":material/arrow_forward:",
+        )

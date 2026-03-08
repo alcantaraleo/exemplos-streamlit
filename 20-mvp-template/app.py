@@ -26,10 +26,12 @@ if "email_usuario" not in st.session_state:
     st.session_state.email_usuario = ""
 
 # ----- 2. Processar dados -----
-# Se o usuário NÃO está logado, redirecionamos para a página de login.
-# st.switch_page troca para outra página do app (como se clicasse no menu).
+# Se o usuário NÃO está logado, mostramos link para o login.
+# Usamos st.page_link em vez de st.switch_page (bug #11115: switch_page perde session_state).
 if not st.session_state.logado:
-    st.switch_page("pages/login.py")
+    st.warning("Você precisa fazer login para continuar.")
+    st.page_link("pages/login.py", label="Ir para o Login", icon=":material/login:")
+    st.stop()
 
 # ----- 3. Exibir resultado -----
 # Se chegou aqui, o usuário está logado. Mostramos boas-vindas.

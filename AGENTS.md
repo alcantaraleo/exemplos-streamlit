@@ -38,3 +38,16 @@
 ## Visual e interface
 
 - Os exemplos devem ser **coloridos e visualmente atrativos**, adequados ao público-alvo (crianças e adolescentes).
+
+## Commits (Conventional Commits)
+
+- Usar formato semântico: `type(scope): descrição breve`.
+- **Types:** `feat` (nova funcionalidade), `fix` (correção), `refactor` (refatoração), `docs` (documentação), `chore` (config, tooling), `style` (formatação).
+- **Scope:** módulo ou área afetada (ex: `dashboard`, `template`, `login`).
+- **Descrição:** em português, direta e concisa; usar imperativo (ex: "adiciona", "corrige", "remove").
+- **Corpo:** quando útil, adicionar parágrafo explicando o que mudou e por quê; manter objetivo.
+- **Evitar:** descrições genéricas, listar linhas alteradas, frases como "gerado automaticamente".
+- **Exemplos:**
+  - `feat(template): adiciona template MVP com login e dashboard`
+  - `fix(dashboard): usa acesso defensivo consistente para item.id`
+  - `fix(dashboard): limpa campo de texto após inserção bem-sucedida`

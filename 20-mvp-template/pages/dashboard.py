@@ -16,9 +16,12 @@ from services.database import buscar_itens, inserir_item, deletar_item, credenci
 st.set_page_config(page_title="Dashboard - MVP Template", layout="wide")
 
 # ----- Proteção: verificar se está logado -----
-# Se o usuário não está logado, redirecionamos para o login.
+# Se o usuário não está logado, mostramos link para o login.
+# Usamos st.page_link em vez de st.switch_page (bug #11115: switch_page perde session_state).
 if not st.session_state.get("logado", False):
-    st.switch_page("pages/login.py")
+    st.warning("Você precisa fazer login para acessar o dashboard.")
+    st.page_link("pages/login.py", label="Ir para o Login", icon=":material/login:")
+    st.stop()
 
 # ----- Verificar credenciais do Supabase -----
 # Usamos a função do database.py para evitar duplicar a lógica.
@@ -119,4 +122,6 @@ st.divider()
 if st.button("Sair", key="btn_sair"):
     st.session_state.logado = False
     st.session_state.email_usuario = ""
-    st.switch_page("pages/login.py")
+    # st.rerun() faz a verificação "logado" acima rodar de novo; exibe o page_link para login.
+    # Evitamos st.switch_page (bug #11115: perde session_state).
+    st.rerun()
