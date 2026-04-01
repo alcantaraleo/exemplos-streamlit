@@ -23,6 +23,8 @@
     mode: "range",
     dateFormat: "d-m-Y",
     inline: true,
+    disableMobile: true,
+    clickOpens: false,
     onChange: function(selectedDates) {
       if (selectedDates.length === 2) {
         const start = selectedDates[0].toLocaleDateString('pt-BR');
