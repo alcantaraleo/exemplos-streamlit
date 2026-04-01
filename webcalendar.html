@@ -5,10 +5,19 @@
   <link rel="stylesheet" href="flatpickr.min.css">
   <script src="flatpickr.min.js"></script>
 </head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .flatpickr-calendar {
+    width: 100% !important;
+  }
+</style>  
 <body>
 
-<input id="calendar">
-
+<div id="calendar"></div>
 <script>
   flatpickr("#calendar", {
     mode: "range",
