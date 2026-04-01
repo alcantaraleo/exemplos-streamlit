@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="flatpickr.min.css">
+  <script src="flatpickr.min.js"></script>
+</head>
+<body>
 
-<body style="background-color: red;">
-  <h1>FUNCIONOU</h1>
+<input id="calendar">
+
+<script>
+  flatpickr("#calendar", {
+    mode: "range",
+    dateFormat: "Y-m-d",
+    onChange: function(selectedDates) {
+      if (selectedDates.length === 2) {
+        const start = selectedDates[0].toLocaleDateString('en-CA');
+        const end = selectedDates[1].toLocaleDateString('en-CA');
+
+        window.AppInventor.setWebViewString(start + "|" + end);
+      }
+    }
+  });
+</script>
+
 </body>
-
 </html>
