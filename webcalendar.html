@@ -2,44 +2,119 @@
 <html>
 <head>
   <meta charset="UTF-8">
+
+  <!-- Flatpickr -->
   <link rel="stylesheet" href="flatpickr.min.css">
   <script src="flatpickr.min.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* =========================
+       🎨 TEMA ROSA
+    ========================= */
+    :root {
+      --pink-primary: #e91e63;
+      --pink-light: #f8bbd0;
+      --pink-dark: #ad1457;
+    }
+
+    .flatpickr-calendar {
+      font-family: sans-serif;
+      border: none;
+      box-shadow: none;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .flatpickr-months {
+      background: var(--pink-primary);
+      color: white;
+    }
+
+    .flatpickr-current-month input.cur-year {
+      color: white;
+    }
+
+    .flatpickr-monthDropdown-months {
+      color: white;
+    }
+
+    .flatpickr-prev-month,
+    .flatpickr-next-month {
+      fill: white;
+    }
+
+    .flatpickr-weekdays {
+      background: var(--pink-light);
+    }
+
+    .flatpickr-weekday {
+      color: var(--pink-dark);
+      font-weight: bold;
+    }
+
+    .flatpickr-day {
+      border-radius: 8px;
+      height: 42px;
+      line-height: 42px;
+    }
+
+    .flatpickr-day:hover {
+      background: var(--pink-light);
+    }
+
+    .flatpickr-day.selected,
+    .flatpickr-day.startRange,
+    .flatpickr-day.endRange {
+      background: var(--pink-primary);
+      border-color: var(--pink-primary);
+      color: white;
+    }
+
+    .flatpickr-day.inRange {
+      background: var(--pink-light);
+    }
+
+    .flatpickr-day.today {
+      border: 1px solid var(--pink-primary);
+    }
+
+    /* =========================
+       📦 LAYOUT
+    ========================= */
+    #calendar {
+      padding: 10px;
+    }
+  </style>
 </head>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-  }
 
-  #calendar {
-    height: auto;
-  }
-
-  .flatpickr-calendar {
-    width: 100% !important;
-  }
-</style>  
 <body>
 
-<div style="height: 100%;">
-  <div id="calendar"></div>
-</div>
-<script>
-  flatpickr("#calendar", {
-    mode: "range",
-    dateFormat: "d-m-Y",
-    inline: true,
-    disableMobile: true,
-    clickOpens: false,
-    onChange: function(selectedDates) {
-      if (selectedDates.length === 2) {
-        const start = selectedDates[0].toLocaleDateString('pt-BR');
-        const end = selectedDates[1].toLocaleDateString('pt-BR');
+<div id="calendar"></div>
 
-        window.AppInventor.setWebViewString(start + "|" + end);
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    flatpickr("#calendar", {
+      mode: "range",
+      dateFormat: "d-m-Y",
+      inline: true,
+      disableMobile: true,
+      clickOpens: false,
+      showMonths: 1,
+
+      onChange: function(selectedDates) {
+        if (selectedDates.length === 2 && window.AppInventor) {
+          const start = selectedDates[0].toLocaleDateString('pt-BR');
+          const end = selectedDates[1].toLocaleDateString('pt-BR');
+
+          window.AppInventor.setWebViewString(start + "|" + end);
+        }
       }
-    }
+    });
   });
 </script>
 
