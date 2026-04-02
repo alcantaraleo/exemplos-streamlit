@@ -9,6 +9,11 @@
   body {
     margin: 0;
     padding: 0;
+    height: 100vh;
+  }
+
+  #calendar {
+    height: auto;
   }
 
   .flatpickr-calendar {
@@ -17,7 +22,9 @@
 </style>  
 <body>
 
-<div id="calendar"></div>
+<div style="height: 100%;">
+  <div id="calendar"></div>
+</div>
 <script>
   flatpickr("#calendar", {
     mode: "range",
